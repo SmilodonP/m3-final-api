@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :subscription do
     title { Faker::Commerce.product_name }
-    price { Faker::Commerce.price(range: 5.0..50.0) }
-    status { [1] } 
+    status { [0, 1].sample }
     frequency { [1, 3, 6, 12].sample }  
+    association :customer
   end
 end
